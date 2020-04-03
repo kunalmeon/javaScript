@@ -1,0 +1,25 @@
+function area(x){
+alert('calculating the area of square');
+return x*x;
+}
+
+function memorizer(func)
+{
+let cache=new Map();
+return function(x){
+if(cache.has(x)){alert('work is already done and we have copy of it');
+return cache.get(x);
+                }
+else alert('since no data is present there so first we will call the function'); 
+let workdone=func(x);
+cache.set(x,workdone);
+return workdone;
+}
+}
+
+area=memorizer(area);
+alert(area(4));
+alert(area(9));
+alert(area(2));
+alert(area(9));
+alert(area(4));
